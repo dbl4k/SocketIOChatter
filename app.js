@@ -21,7 +21,7 @@ app.get('/jquery:', function(req, res){
 
 io.on('connection', function(socket){
     socket.on('chat message', function(msg){
-        var formattedMsg = "<" + socket.nickname + "> " + msg
+        var formattedMsg = "<" + socket.nickname + "> " + msg;
         io.emit('chat message', formattedMsg);
         console.log("someone said..." + formattedMsg);
     });
