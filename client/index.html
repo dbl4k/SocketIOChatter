@@ -35,6 +35,11 @@
     socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
     });
+
+    socket.on('get nickname', function(msg){
+        socket.emit('get nickname', prompt("Enter yr nickname:"));
+    });
+
 </script>
 </body>
 </html>
