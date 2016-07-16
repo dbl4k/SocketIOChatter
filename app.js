@@ -21,8 +21,9 @@ app.get('/jquery:', function(req, res){
 
 io.on('connection', function(socket){
     socket.on('chat message', function(msg){
-        io.emit('chat message', "<" + socket.nickname + "> " + msg);
-        console.log("someone said..." + msg);
+        var formattedMsg = "<" + socket.nickname + "> " + msg
+        io.emit('chat message', formattedMsg);
+        console.log("someone said..." + formattedMsg);
     });
 
     socket.on('get nickname', function(data){
@@ -34,7 +35,6 @@ io.on('connection', function(socket){
         io.emit('disconnected', msg);
         console.log('disconnected');
     });
-
 
     socket.emit("get nickname");
     io.emit("someone connected, getting nickname");
