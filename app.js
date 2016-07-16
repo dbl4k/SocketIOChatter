@@ -23,7 +23,7 @@ io.on('connection', function(socket){
     socket.on('chat message', function(msg){
         var formattedMsg = "<" + socket.nickname + "> " + msg;
         io.emit('chat message', formattedMsg);
-        console.log("someone said..." + formattedMsg);
+        console.log(formattedMsg);
     });
 
     socket.on('get nickname', function(data){
